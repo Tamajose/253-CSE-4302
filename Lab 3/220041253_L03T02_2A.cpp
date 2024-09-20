@@ -46,7 +46,6 @@ int main(){
     num1.print();
     
     num2.assign(1,0);
-    num2.print();
 
     num3.assign(0,4);
     num3.print();
