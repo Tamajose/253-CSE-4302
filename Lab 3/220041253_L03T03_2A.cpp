@@ -20,10 +20,19 @@ class BankAccount{
             cout << "Balance: " << balanceamount << endl;
         }
         void deposit(double amount){
-            balanceamount += amount;
+            if(amount<0){
+                cout << "Error: Deposit amount is negative." << endl;
+            }
+            else
+                balanceamount += amount;
         }
         void withdraw(double amount){
             balanceamount -= amount;
+            if(balanceamount<0){
+                cout << "Balance is less than withdrawal amount. Money cannot be withdrawn." << endl;
+                balanceamount += amount;
+            }
+            
         }
         void display(){
             cout << "Customer Name: " << customername << endl;
