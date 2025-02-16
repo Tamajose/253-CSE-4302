@@ -2,19 +2,35 @@
 #include <string>
 using namespace std;
 
+enum AccType{
+    Current,
+    Saving
+};
+
 class BankAccount{
     private:
         string customername;
-        int accountnumber;
+        string accountnumber;
         string accounttype;
         double balanceamount;
     public:
-        void customerDetails(string name, int num){
+        void customerDetails(string name, string num){
             customername = name;
             accountnumber = num;
         }
-        void accountType(string type){
-            accounttype = type;
+        void accountType(int type){
+            switch(type){
+                case 0:
+                {
+                    accounttype = "Current";
+                    break;
+                }
+                case 1:
+                {
+                    accounttype = "Saving";
+                    break;
+                }
+            }
         }
         void balance(){
             cout << "Balance: " << balanceamount << endl;
@@ -32,7 +48,6 @@ class BankAccount{
                 cout << "Balance is less than withdrawal amount. Money cannot be withdrawn." << endl;
                 balanceamount += amount;
             }
-            
         }
         void display(){
             cout << "Customer Name: " << customername << endl;
@@ -44,8 +59,8 @@ class BankAccount{
 
 int main(){
     BankAccount customer1;
-    customer1.customerDetails("Tama", 253);
-    customer1.accountType("Saving");
+    customer1.customerDetails("Tama", "253");
+    customer1.accountType(0);
     customer1.deposit(1000);
     customer1.display();
     customer1.withdraw(300);

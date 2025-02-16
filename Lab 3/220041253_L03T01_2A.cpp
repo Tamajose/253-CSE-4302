@@ -16,6 +16,9 @@ class Temperature{
         float getTemperature(){
             return temp;
         }
+        float getIncrementStep(){
+            return incrementstep;
+        }
         void increment(){
             temp += incrementstep;
         }
@@ -26,7 +29,7 @@ class Temperature{
 
 int main(){
     Temperature temp1;
-    cout << "Current temp: " << temp1.getTemperature() << endl << "Current increment value: 0" << endl;
+    cout << "Current temp: " << temp1.getTemperature() << endl << "Current increment value: " << temp1.getIncrementStep() << endl;
     temp1.resetTemperature();
     cout << "Current temperature: " << temp1.getTemperature() << endl;
     temp1.setIncrementStep(7.8);
