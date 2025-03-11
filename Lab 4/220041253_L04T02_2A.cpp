@@ -8,6 +8,12 @@ enum AccType{
 
 int createdaccounts=0, existingaccounts=0, totalsourcetax=0;
 
+int display_stat(){
+    cout << "Total number of accounts created: " << createdaccounts << endl;
+    cout << "Total number of existing accounts: " << existingaccounts << endl;
+    cout << "Total source tax collected: " << totalsourcetax << endl;
+}
+
 class BankAccount{
     private:
         string accountnumber;
@@ -80,14 +86,9 @@ class BankAccount{
             cout << "Account of Mr. " << holdername;
             cout << " with account no " << accountnumber;
             cout << " is destroyed with a balance BDT " << balance << endl;
+            display_stat();
         }
 };
-
-int display_stat(){
-    cout << "Total number of accounts created: " << createdaccounts << endl;
-    cout << "Total number of existing accounts: " << existingaccounts << endl;
-    cout << "Total source tax collected: " << totalsourcetax << endl;
-}
 
 const BankAccount& Larger(const BankAccount &A, const BankAccount &B) {
     if(A.getBalance()>B.getBalance())
